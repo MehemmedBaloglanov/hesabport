@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: hesabport-api
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+  modulith:
+    events:
+      jdbc:
+        schema-initialization:
+          enabled: true
+
+  docker:
+    compose:
+      lifecycle-management: start-only
+
+server:
+  error:
+    include-stacktrace: never
+    include-message: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
